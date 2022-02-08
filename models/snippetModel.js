@@ -1,11 +1,12 @@
 const mongoose = require("mongoose");
+const ObjectId = mongoose.Schema.Types.ObjectId;
 
 const snippetSchema = new mongoose.Schema(
   {
     title: { type: String },
-    // title: {type: String, required: true},
     description: { type: String },
     code: { type: String },
+    user: { type: ObjectId, required: true },
   },
   {
     timestamps: true,

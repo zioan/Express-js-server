@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const cors = require("cors");
+const cookieParser = require("cookie-parser");
 
 dotenv.config();
 
@@ -14,11 +15,13 @@ app.use(
     origin: "http://localhost:3000",
   })
 );
+app.use(cookieParser());
 
 app.listen(5000, () => console.log("Server listening on port 5000"));
 
 //set up routers
 app.use("/snippet", require("./routers/snippetRouter")); //http://localhost:5000/snippet/
+app.use("/auth", require("./routers/userRouter")); //http://localhost:5000/auth/
 
 //connect to mongoDB
 
