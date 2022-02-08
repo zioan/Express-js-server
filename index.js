@@ -18,7 +18,8 @@ app.use(
 );
 app.use(cookieParser());
 
-app.listen(5000, () => console.log("Server listening on port 5000"));
+const PORT = process.env.PORT || 5000; //for herocu
+app.listen(PORT, () => console.log(`Server listening on port ${PORT}`));
 
 //set up routers
 app.use("/snippet", require("./routers/snippetRouter")); //http://localhost:5000/snippet/
